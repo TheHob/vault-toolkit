@@ -32,8 +32,8 @@ Purpose: To demonstrate storing and retrieving MySQL database values that are en
 ### Usage
 ```
 TRANSIT_KEY=bar \
-TRANSIT_PATH=transit
-\ DB_HOST=my.mysql.host \
+TRANSIT_PATH=transit \
+DB_HOST=my.mysql.host \
 DB_USER=my_db_user \
 DB_NAME=my_db \
 DB_TABLE=my_customers \
