@@ -26,6 +26,9 @@ TRANSIT_KEY=${TRANSIT_KEY-'bar'}
 PAYLOAD=${PAYLOAD:-'Behind the barrier.'}
 CONTEXT=${CONTEXT:-'echo -n "185340909" | md5sum | awk '{print $1}' | base64'}
 
+# Check for a Vault token
+[[ -z "$VAULT_TOKEN" ]] && echo "Please set your '\$VAULT_TOKEN' variable and retry." && exit || continue
+
   encrypt_payload () {
     vault write -field=ciphertext $TRANSIT_PATH/encrypt/$TRANSIT_KEY \
       plaintext=`echo $PAYLOAD| base64` \
@@ -38,15 +41,14 @@ CONTEXT=${CONTEXT:-'echo -n "185340909" | md5sum | awk '{print $1}' | base64'}
       context=`echo $CONTEXT | base64` |base64 -D
   }
 
-  # Check for a Vault token
-  [[ -z "$VAULT_TOKEN" ]] && echo "Please set your '\$VAULT_TOKEN' variable and retry." && exit || continue
-
-  # Encrypt or decrypt based on desired action
-  case $ACTION in
-    encrypt)
-      encrypt_payload ;;
-    decrypt)
-      decrypt_payload ;;
-    *)
-      echo "Please set ACTION=encrypt or ACTION=decrypt" ;;
-  esac
+#
+#  # Encrypt or decrypt based on desired action
+#  case $ACTION in
+#    encrypt)
+#      encrypt_payload ;;
+#    decrypt)
+#      decrypt_payload ;;
+#    *)
+#      echo "Please set ACTION=encrypt or ACTION=decrypt" ;;
+#  esac
+#
