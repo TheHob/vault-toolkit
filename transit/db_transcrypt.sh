@@ -1,4 +1,11 @@
-  source ./transcrypt.sh
+#!/bin/bash ./db_transcrypt.sh
+
+## Purpose: To demonstrate storing and retrieving MySQL
+#  database values that are encrypted and decrypted by
+#  HashiCorp Vault.
+
+
+source ./transcrypt.sh
 
 VAULT_TOKEN=${VAULT_TOKEN}
 TRANSIT_PATH=${TRANSIT_PATH}

@@ -25,3 +25,21 @@ CONTEXT='user@mycompany.com' \
 sh transcrypt.sh
 $ Randomness in a can.
 ```
+
+## `db_transcrypt.sh`
+Purpose: To demonstrate storing and retrieving MySQL database values that are encrypted and decrypted by HashiCorp Vault. For more information, see https://www.vaultproject.io/docs/secrets/transit/
+
+### Usage
+```
+TRANSIT_KEY=bar \
+TRANSIT_PATH=transit
+\ DB_HOST=my.mysql.host \
+DB_USER=my_db_user \
+DB_NAME=my_db \
+DB_TABLE=my_customers \
+DB_PASS=mydbpass \
+CUSTOMER_NAME="Bob Jones" \
+CUSTOMER_PHONE="07481111111" \
+CUSTOMER_EMAIL="user@mycompany.com" \
+sh db_transcrypt.sh
+```
