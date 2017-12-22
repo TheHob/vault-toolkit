@@ -10,7 +10,8 @@ $ export VAULT_ADDR=http://myvault.com:8200
 $ export VAULT_TOKEN=f210025a-2a50-e5be-2f5e-65aa5245068b
 
 $ PAYLOAD='Randomness in a can.'  \
-ACTION=encrypt TRANSIT_KEY=bar \
+ACTION=encrypt \
+TRANSIT_KEY=bar \
 TRANSIT_PATH=transit \
 CONTEXT='user@mycompany.com' \
 sh transcrypt.sh
