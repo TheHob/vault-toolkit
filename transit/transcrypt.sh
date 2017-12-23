@@ -26,8 +26,10 @@ TRANSIT_KEY=${TRANSIT_KEY-'bar'}
 PAYLOAD=${PAYLOAD:-'Behind the barrier.'}
 CONTEXT=${CONTEXT:-'echo -n "185340909" | md5sum | awk '{print $1}' | base64'}
 
-# Check for a Vault token
-[[ -z "$VAULT_TOKEN" ]] && echo "Please set your '\$VAULT_TOKEN' variable and retry." && exit || continue
+  # Check for a Vault token
+  if [[ -z "$VAULT_TOKEN" ]] ; then
+    echo "Please set your '\$VAULT_TOKEN' variable and retry." && exit
+  fi
 
   encrypt_payload () {
     vault write -field=ciphertext $TRANSIT_PATH/encrypt/$TRANSIT_KEY \

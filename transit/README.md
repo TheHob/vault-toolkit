@@ -9,21 +9,22 @@ Purpose: To serve as an encryption/decryption connector between applications and
 $ export VAULT_ADDR=http://myvault.com:8200
 $ export VAULT_TOKEN=f210025a-2a50-e5be-2f5e-65aa5245068b
 
-$ PAYLOAD='Randomness in a can.'  \
-ACTION=encrypt \
-TRANSIT_KEY=bar \
-TRANSIT_PATH=transit \
-CONTEXT='user@mycompany.com' \
-sh transcrypt.sh
+$ source transcrypt.sh ;\
+    PAYLOAD='Encryption in a can.' \
+    TRANSIT_PATH=transit \
+    TRANSIT_KEY=bar \
+    CONTEXT='user@mycompany.com' \
+    encrypt_payload
 $ vault:v1:edrphWAzMO5qRH/Y/ZinSGjB6oKwL0H2l4gY4jhMAOqi66ybviDGnpSkWlQ0nFhZEg==
 
-$ PAYLOAD=vault:v1:edrphWAzMO5qRH/Y/ZinSGjB6oKwL0H2l4gY4jhMAOqi66ybviDGnpSkWlQ0nFhZEg==  \
-ACTION=decrypt \
-TRANSIT_KEY=bar \
-TRANSIT_PATH=transit \
-CONTEXT='user@mycompany.com' \
-sh transcrypt.sh
-$ Randomness in a can.
+$ source transcrypt.sh ;\
+    PAYLOAD=vault:v1:edrphWAzMO5qRH/Y/ZinSGjB6oKwL0H2l4gY4jhMAOqi66ybviDGnpSkWlQ0nFhZEg== \
+    TRANSIT_PATH=transit \
+    TRANSIT_KEY=bar \
+    TRANSIT_KEY=${TRANSIT_KEY} \
+    CONTEXT='user@mycompany.com' \
+    decrypt_payload
+$ Encryption in a can.
 ```
 
 ## `db_transcrypt.sh`
