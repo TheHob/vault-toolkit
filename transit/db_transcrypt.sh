@@ -79,7 +79,7 @@ echo "Retrieved phone (encrypted): ${RETRIEVED_PHONE}"
 echo "Retrieved email (encrypted): ${RETRIEVED_EMAIL}\n"
 
 ## Let's decrypt the retrieved values
-echo "${GREEN}Values retrieved from the database and decrypted:${NC}"
+echo "${GREEN}Values retrieved from the database and decrypted by Vault:${NC}"
 DECRYPTED_NAME=$(RETRIEVED_VALUE=${RETRIEVED_NAME}  decrypt_retrieved)
 DECRYPTED_PHONE=$(RETRIEVED_VALUE=${RETRIEVED_PHONE} decrypt_retrieved)
 DECRYPTED_EMAIL=$(RETRIEVED_VALUE=${RETRIEVED_EMAIL} decrypt_retrieved)
