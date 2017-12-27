@@ -8,7 +8,7 @@
   yum -y update
   yum -y install wget
   wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
-  sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
+  rpm -ivh mysql-community-release-el7-5.noarch.rpm
   yum -y update
   yum -y install mysql mysql-server
   systemctl start mysqld
