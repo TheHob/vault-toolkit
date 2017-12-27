@@ -51,7 +51,7 @@
   }
 
   # First, the raw values
-  echo "${GREEN}Your values before encryption:${NC}"
+  echo "\n${GREEN}Your values before encryption:${NC}"
   echo "Customer name: ${CUSTOMER_NAME}"
   echo "Customer phone: ${CUSTOMER_PHONE}"
   echo "Customer email: ${CUSTOMER_EMAIL}\n"
