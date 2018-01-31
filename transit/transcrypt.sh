@@ -40,7 +40,8 @@ CONTEXT=${CONTEXT:-'echo -n "185340909" | md5sum | awk '{print $1}' | base64'}
   decrypt_payload () {
     vault write -field=plaintext $TRANSIT_PATH/decrypt/$TRANSIT_KEY \
       ciphertext=`echo $PAYLOAD` \
-      context=`echo $CONTEXT | base64` |base64 -D
+      # context=`echo $CONTEXT | base64` |base64 -D # For use on Mac
+      context=`echo $CONTEXT | base64` |base64 -d # For use on Linux
   }
 
 #
